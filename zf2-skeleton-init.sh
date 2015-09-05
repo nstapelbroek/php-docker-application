@@ -1,11 +1,10 @@
 #!/bin/bash
-if [ "$(ls -A $(pwd))" ]; then
-     echo '$(pwd) folder contains files, aborting initialisation'
-     exec /run.sh
-     exit 0
+if [ -d .git ]; then
+     echo "$(pwd) folder is allready a git repository, cloning aborted"
+else
+  rm $(pwd)/.gitkeep
+  git clone $APPLICATION_VCS $(pwd)
 fi
-
-git clone $APPLICATION_VCS $(pwd)
 
 if [ "x$COMPOSER_COMMAND" != "x" ]; then
   composer $COMPOSER_COMMAND
