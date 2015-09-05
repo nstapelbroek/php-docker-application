@@ -1,9 +1,14 @@
 #!/bin/bash
-if [ "$(ls -A /app)" ]; then
-     echo '/app folder contains files, aborting initialisation'
-else
-  git clone $APPLICATION_VCS ./
-  composer install -o
+if [ "$(ls -A $(pwd))" ]; then
+     echo '$(pwd) folder contains files, aborting initialisation'
+     exec /run.sh
+     exit 0
 fi
 
-exec run.sh
+git clone $APPLICATION_VCS $(pwd)
+
+if [ "x$COMPOSER_COMMAND" != "x" ]; then
+  composer $COMPOSER_COMMAND
+fi
+
+exec /run.sh
