@@ -2,7 +2,7 @@ FROM tutum/apache-php
 MAINTAINER Nico Stapelbroek <nstapelbroek@gmail.com>
 
 ENV ALLOW_OVERRIDE=true
-ENV GIT_COMMAND='clone https://github.com/zendframework/ZendSkeletonApplication.git'
+ENV APPLICATION_VCS=https://github.com/zendframework/ZendSkeletonApplication.git
 ENV COMPOSER_COMMAND="install -o"
 ENV USE_PUBLIC=true
 
