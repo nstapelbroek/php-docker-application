@@ -2,16 +2,14 @@ FROM tutum/apache-php
 MAINTAINER Nico Stapelbroek <nstapelbroek@gmail.com>
 
 ENV ALLOW_OVERRIDE=true
-ENV APPLICATION_VCS=https://github.com/zendframework/ZendSkeletonApplication.git
 ENV COMPOSER_COMMAND="install -o"
 ENV USE_PUBLIC=true
 
 RUN apt-get update && apt-get install -yq git curl tar && rm -rf /var/lib/apt/lists/*
+RUN composer self-update
 
-ADD zf2-skeleton-init.sh /zf2-skeleton-init.sh
+ADD bootstrap-application.sh /bootstrap-application.sh
 RUN chmod 755 /*.sh
 
-RUN rm -rf /app && mkdir /app
-WORKDIR /app
-
-CMD ["/zf2-skeleton-init.sh"]
+CMD ["/bootstrap-application.sh"]
+EXPOSE 80
