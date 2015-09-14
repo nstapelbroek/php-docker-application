@@ -4,6 +4,7 @@ A personal view on building containerized php applications using Docker. Basical
 
 ## How should i use this?
 Assuming you allready have docker installed and nothing is listening on your http port you can "containerize" your php application like so:
+
 1. `cd` to your application
 2. `docker run -p 80:80 -v $(pwd):/app --name {application_name} nstapelbroek/php-docker-application`
 
