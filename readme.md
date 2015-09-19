@@ -1,5 +1,7 @@
 # php-docker-application
 
+[![](https://badge.imagelayers.io/nstapelbroek/php-docker-application:latest.svg)](https://imagelayers.io/?images=nstapelbroek/php-docker-application:latest 'Get your own badge on imagelayers.io')
+
 A personal view on building containerized PHP applications using Docker. Basically this image is Tutum's [apache-php](https://github.com/tutumcloud/apache-php) container with a few extra bash commands to integrate better with my personal workflow. If you have any tips on using Docker at all, hit me up!
 
 ## How should i use this?
