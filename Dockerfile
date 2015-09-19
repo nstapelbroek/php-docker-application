@@ -6,7 +6,7 @@ ENV COMPOSER_COMMAND="install -o"
 ENV USE_PUBLIC=true
 ENV APP_ENV='local'
 
-RUN apt-get update && apt-get install -yq git curl tar && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -yq git curl tar php5-sqlite && rm -rf /var/lib/apt/lists/*
 RUN composer self-update
 
 ADD bootstrap-application.sh /bootstrap-application.sh
